@@ -14,7 +14,7 @@ module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Restaurant Page',
+      template: './src/template.html',
     }),
 
     // Webpack will automatically replace any process.env.<key> with the defined during build
