@@ -1,18 +1,18 @@
 import './style.css';
 import {ClearContent} from './ClearContent';
 import {CreateHome} from './homeAssets/CreateHome';
-import { NavButtonActions } from './NavButtonActions';
+import {NavButtonActions} from './NavButtonActions';
 
 // Set Up Nav Bar Functions
-const HomeButton = document.querySelector("#HomeButton");
+const HomeButton = document.getElementById("HomeButton");
 HomeButton.addEventListener("click", function (e) {
     NavButtonActions(this.id)
 })
-const ContactButton = document.querySelector("#ContactButton");
+const ContactButton = document.getElementById("ContactButton");
 ContactButton.addEventListener("click", function (e) {
     NavButtonActions(this.id)
 })
-const MenuButton = document.querySelector("#MenuButton");
+const MenuButton = document.getElementById("MenuButton");
 MenuButton.addEventListener("click", function (e) {
     NavButtonActions(this.id)
 })
@@ -20,4 +20,5 @@ MenuButton.addEventListener("click", function (e) {
 // Initial Page Load
 ClearContent();
 CreateHome();
-
+ContactButton.style.backgroundColor = "var(--PrimaryColour)"
+MenuButton.style.backgroundColor = "var(--PrimaryColour)"

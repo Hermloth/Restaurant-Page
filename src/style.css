@@ -42,14 +42,14 @@ body{
 
 .NavButton{
     color: white;
-    background-color: var(--SecondaryColour);
     height: 25px;
     width: 100px;
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px;
     border: none;
     font-weight: 600;
     margin-left: 5px;
     margin-right: 5px;
+    background-color: var(--TertiaryColour);
 }
 
 .HomeContainer{
@@ -149,3 +149,104 @@ body{
     display: grid;
     justify-self: end;
 }
+
+/* CONTACT SECTION */
+
+.ContactContainer{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.ContactSectionFrame{
+    grid-area: 1/1/2/2;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0px 3px 5px grey;
+
+    padding-top: 5px;
+}
+
+.ContactTextFrame{
+    grid-area: 1/1/2/2;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    
+    padding: 30px;
+    color: grey;
+    font-weight: 700;
+    white-space: pre-line;
+}
+
+.ContactImage{
+    grid-area: 1/2/2/3;
+    height: 100%;
+    width: 50vw;
+
+    display: grid;
+    justify-self: end;
+}
+
+/* MENU SECTION */
+
+.MenuContainer{
+    grid-row: 20px 1fr;
+}
+
+.MenuText{
+    grid-area: 1/1/2/2;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    
+    padding: 15px;
+    color: grey;
+    font-weight: 700;
+    white-space: pre-line;
+}
+
+.MenuHolder{
+    grid-area: 2/1/3/2;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 15px;
+
+    overflow: auto;
+
+}
+
+.MenuItem{
+    display: grid;
+    grid-template-rows: 20px 1fr;
+    height: 350px;
+    width: 200px;
+    align-content: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.MenuSubElement{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    padding: 5px;
+    font-weight: 500;
+    color: #135D66;
+}
+
+.ImageSubElement{
+    grid-area: 2/1/3/2;
+    height: 320px;
+    width: 180px;
+
+}
+
+
+
+
+
