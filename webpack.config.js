@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  mode: 'development',
+  mode: process.env.NODE_ENV ?? 'development',
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
@@ -13,12 +14,23 @@ module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Development',
+      title: 'Restaurant Page',
     }),
+
+    // Webpack will automatically replace any process.env.<key> with the defined during build
+    // environment variables are always string like - so we json encode "true"
+    // We don't need to put these under process.env this can replace any string
+    // Note this plugin does _direct_ replacement so everything needs to be in a double string or json encoded https://webpack.js.org/plugins/define-plugin/
+    new webpack.DefinePlugin({
+      "process.env.IS_PRODUCTION": JSON.stringify(process.env.NODE_ENV === "production" ? true : false),
+    
+      "GLOBAL_TEST": JSON.stringify("I'm defined in Webpack!!")
+    })
   ],
   output: {
-    filename: 'main.js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
   },
   module: {
     rules: [
@@ -41,27 +53,6 @@ module.exports = {
       {
         test: /\.xml$/i,
         use: ['xml-loader'],
-      },
-      {
-        test: /\.toml$/i,
-        type: 'json',
-        parser: {
-          parse: toml.parse,
-        },
-      },
-      {
-        test: /\.yaml$/i,
-        type: 'json',
-        parser: {
-          parse: yaml.parse,
-        },
-      },
-      {
-        test: /\.json5$/i,
-        type: 'json',
-        parser: {
-          parse: json5.parse,
-        },
       },
     ],
   },
