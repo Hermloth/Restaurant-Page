@@ -8,8 +8,6 @@ const welcomeText = "Welcome to The Grill House bar and grill. An experience tha
 const diningText = "Sample our fantastic sides, followed by the main course of triple A grade steak that is sure to get you MOOving";
 const locationText = "We can be found at:\r\n 123 Fake Street, Fake Town, \r\n Fake Postcode, Fake State, \r\n Fairy Tale Country."
 
-
-
 export function CreateHome(){
     var contentcontainer = document.querySelector('#content');
     var homeFrame = CreateDivElement("HomeContainer", contentcontainer);
@@ -28,6 +26,4 @@ export function CreateHome(){
     var locationTextFrame = CreateDivElement("LocationTextFrame", locationSectionFrame);
     locationTextFrame.textContent = locationText;
     var locationImage = CreateImgElement("LocationImage", locationSectionFrame, LocationImage)
-
-
 }
